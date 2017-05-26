@@ -1,0 +1,6 @@
+<% @cards.each do |card| %>
+  <div class="card_wrapper">
+    <h2 class="title"><%= link_to card.title, card %></h2>
+    <p class="date"><%= card.created_at.strftime("%B, %d, %Y") %></p>
+  </div>
+<% end %>
