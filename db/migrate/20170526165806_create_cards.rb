@@ -3,6 +3,7 @@ class CreateCards < ActiveRecord::Migration[5.1]
     create_table :cards do |t|
       t.string :title
       t.text :body
+      t.boolean :status
 
       t.timestamps
     end

@@ -1,16 +1,16 @@
 <h1>New Card</h1>
 
-<%= form_for :card, url: cards_path do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>  
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-  
+<%= simple_form_for @card do |f| %>
+  <div class="form-group">
+    <%= f.input :title, label: "Title:", 
+                input_html: { class: 'form-control', required: true, autofocus: true } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :body, label: "Decision:", 
+                input_html: { class: 'form-control', required: true, autofocus: true } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :status, as: :boolean, boolean_style: :inline %>
+  </div>
+  <%= f.button :submit, "Create card", class: 'btn btn-default' %>
 <% end%>

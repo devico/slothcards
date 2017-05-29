@@ -1,0 +1,17 @@
+<h1>Sign Up</h1>
+
+<%= simple_form_for @user do |f| %>
+  <div class="form-group">
+    <%= f.input :email, as: :email, label: "Email:", 
+                input_html: { class: 'form-control', required: true, autofocus: true } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :password, as: :password, label: "Password:",
+                input_html: { class: 'form-control', required: true } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :password_confirmation, as: :password, label: "Password confirmation:",
+                input_html: { class: 'form-control', required: true } %>
+  </div>
+  <%= f.button :submit, "Create user", class: 'btn btn-default' %>
+<% end %>
