@@ -6,16 +6,10 @@
           <button class="button"><%= link_to "New card", new_card_path %></button>
           <% if logged_in? %>
             Currently logged in as: <%= current_user.email %>
-            <% if current_user.has_linked_github? %>
-              <button class="button"><%= link_to 'Unlink your Github account', delete_oauth_path('github'), method: :delete %></button>
-            <% else %>
-              <button class="button"><%= link_to 'Link your GitHub account', auth_at_provider_path(:provider => :github) %></button>
-            <% end %>
             <button class="button"><%= link_to "Log out", logout_path %></button>
           <% else %>
             <button class="button"><%= link_to "Sign up", signup_path %></button>
             <button class="button"><%= link_to "Log in", login_path %></button>
-            <button class="button"><%= link_to 'Login using Github', auth_at_provider_path(provider: :github) %></button>
           <% end %>
         </div>
       </div>
