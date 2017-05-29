@@ -10,8 +10,12 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true,
             format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ }
 
-  def has_linked_github?
-    authentications.where(provider: 'github').present?
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["name"]
+    end
   end
 
 end

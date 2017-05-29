@@ -4,12 +4,13 @@
       <div class="container-fluid">
         <div class="collapse navbar-collapse navbar-right">
           <button class="button"><%= link_to "New card", new_card_path %></button>
-          <% if logged_in? %>
+          <% if current_user %>
             Currently logged in as: <%= current_user.email %>
             <button class="button"><%= link_to "Log out", logout_path %></button>
           <% else %>
             <button class="button"><%= link_to "Sign up", signup_path %></button>
             <button class="button"><%= link_to "Log in", login_path %></button>
+            <button class="button"><%= link_to "Sign in with Github", "/auth/github" %></button>
           <% end %>
         </div>
       </div>
