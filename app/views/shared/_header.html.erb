@@ -3,14 +3,19 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="collapse navbar-collapse navbar-right">
-          <button class="button"><%= link_to "New card", new_card_path %></button>
-          <% if current_user %>
+          <%= link_to "New card", new_card_path %>
+          <% if logged_in? %>
             Currently logged in as: <%= current_user.email %>
-            <button class="button"><%= link_to "Log out", logout_path %></button>
+            <% if current_user.has_linked_github? %>
+              <%= link_to 'Unlink your Github account', delete_oauth_path('github'), method: :delete %>
+            <% else %>
+              <%= link_to 'Link your GitHub account', auth_at_provider_path(:provider => :github) %>
+            <% end %>
+            <%= link_to "Log out", logout_path %>
           <% else %>
-            <button class="button"><%= link_to "Sign up", signup_path %></button>
-            <button class="button"><%= link_to "Log in", login_path %></button>
-            <button class="button"><%= link_to "Sign in with Github", "/auth/github" %></button>
+            <%= link_to "Sign up", signup_path %>
+            <%= link_to "Sign in", login_path %>
+            <%= link_to 'Login using Github', auth_at_provider_path(provider: :github) %>
           <% end %>
         </div>
       </div>
