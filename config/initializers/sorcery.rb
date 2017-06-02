@@ -66,7 +66,7 @@ Rails.application.config.sorcery.configure do |config|
   # What providers are supported by this app, i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack] .
   # Default: `[]`
   #
-  # config.external_providers = [:github]
+  config.external_providers = [:github]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -112,10 +112,10 @@ Rails.application.config.sorcery.configure do |config|
   # config.facebook.api_version = "v2.3"
   # config.facebook.parse = :json
   
-  # config.github.key = "#{Rails.application.secrets.sorcery_github_key}"
-  # config.github.secret = "#{Rails.application.secrets.sorcery_github_secret}"
-  # config.github.callback_url = "#{Rails.application.secrets.sorcery_github_callback_url}"
-  # config.github.user_info_mapping = {:email => "name"}
+  config.github.key = "#{Rails.application.secrets.sorcery_github_key}"
+  config.github.secret = "#{Rails.application.secrets.sorcery_github_secret}"
+  config.github.callback_url = "#{Rails.application.secrets.sorcery_github_callback_url}"
+  config.github.user_info_mapping = {:email => "name"}
   #
   # config.paypal.key = ""
   # config.paypal.secret = ""
@@ -425,7 +425,7 @@ Rails.application.config.sorcery.configure do |config|
     # Class which holds the various external provider data for this user.
     # Default: `nil`
     #
-    # user.authentications_class = Authentication
+    user.authentications_class = Authentication
 
     # User's identifier in authentications class.
     # Default: `:user_id`

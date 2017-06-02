@@ -1,5 +1,10 @@
 class User < ApplicationRecord
-  authenticates_with_sorcery! 
+  authenticates_with_sorcery! do |config|
+    config.authentications_class = Authentication
+  end
+
+  has_many :authentications, :dependent => :destroy
+  accepts_nested_attributes_for :authentications
 
   has_many :cards, dependent: :destroy
 
@@ -9,5 +14,9 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, on: :update, allow_blank: true
   validates :email, uniqueness: true, presence: true,
             format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ }
+
+  def has_linked_github?
+    authentications.where(provider: 'github').present?
+  end
 
 end
