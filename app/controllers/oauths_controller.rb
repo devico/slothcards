@@ -1,7 +1,5 @@
 class OauthsController < ApplicationController
-  skip_before_action :require_login, raise: false
-  # before_action :require_login, only: :destroy
-
+  
   # sends the user on a trip to the provider,
   # and after authorizing there back to the callback url.
   def oauth
@@ -10,6 +8,7 @@ class OauthsController < ApplicationController
 
   # this is where all of the magic happens
   def callback
+    #byebug
     # this will be set to 'github' when user is logging in via Github
     provider = auth_params[:provider]
 
@@ -18,6 +17,7 @@ class OauthsController < ApplicationController
       redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
     else
       begin
+        #byebug
         @user = create_from(provider)
         reset_session # protect from session fixation attack
         auto_login(@user)

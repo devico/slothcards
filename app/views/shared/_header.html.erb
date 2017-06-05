@@ -8,9 +8,10 @@
             Currently logged in as: <%= current_user.email %>
             <%= link_to "Log out", logout_path %>
           <% else %>
-            <%= link_to "Sign up", signup_path %>
-            <%= link_to "Sign in", login_path %>
-            <%= link_to 'Login using Github', auth_at_provider_path(provider: :github) %>
+            <%= link_to "Sign up", signup_path %> | 
+            <%= link_to "Sign in", login_path %> | 
+            <%= link_to 'Login using Github', auth_at_provider_path(provider: :github) %> | 
+            <%= link_to 'Login using Google', auth_at_provider_path(provider: :google) %>
           <% end %>
         </div>
       </div>
