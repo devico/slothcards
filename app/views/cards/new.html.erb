@@ -10,7 +10,7 @@
                 input_html: { class: 'form-control', required: true, autofocus: true } %>
   </div>
   <div class="form-group">
-    <%= f.input :status, as: :boolean, boolean_style: :inline %>
+    <%= f.input :public_status, as: :boolean, boolean_style: :inline %>
   </div>
   <%= f.button :submit, "Create card", class: 'btn btn-default' %>
 <% end%>
