@@ -1,8 +1,8 @@
 class CardsController < ApplicationController
   before_action :require_login, :only => :new
-  
+
   def index
-    @cards = Card.all.order('created_at DESC')
+    respond_with Card.all.order('created_at DESC')
   end
 
   def new

@@ -37,6 +37,7 @@ gem 'sorcery'
 gem 'simple_form'
 gem 'figaro'
 gem 'foreman', '~> 0.84.0'
+gem 'responders'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
