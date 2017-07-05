@@ -4,6 +4,8 @@
 
 <p class="date">
   Submitted <%= time_ago_in_words(@card.created_at) %> Ago
+  | <%= link_to 'Edit', edit_card_path(@card) %>
+  | <%= link_to 'Delete', card_path(@card), method: :delete, data: {confirm: "Are you sure?"} %>
 </p>
 
 <p class="body">
