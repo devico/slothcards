@@ -1,0 +1,14 @@
+<%= simple_form_for @card do |f| %>
+  <div class="form-group">
+    <%= f.input :title, label: "Title:", 
+                input_html: { class: 'form-control', required: true, autofocus: true } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :body, label: "Decision:", 
+                input_html: { class: 'form-control', required: true, autofocus: true } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :public_status, as: :boolean, boolean_style: :inline %>
+  </div>
+  <%= f.button :submit, "Create card", class: 'btn btn-default' %>
+<% end%>
