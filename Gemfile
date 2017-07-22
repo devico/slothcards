@@ -40,6 +40,7 @@ gem 'foreman', '~> 0.84.0'
 gem 'responders'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay'
+gem 'jwt'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
