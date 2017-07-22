@@ -7,6 +7,6 @@ module Jwt::TokenProvider
 
   private
   def issue_token(payload)
-    JWT.encode(payload, Rails.application.secret_key_base)
+    JWT.encode(payload, Rails.application.secrets.secret_key_base)
   end
 end
