@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
-  before_action :require_login, :only => :new
+  # before_action :require_login, :only => :new
+  before_action :authenticate, :only => :new
   before_action :set_card, only: [:show, :edit, :update, :destroy]
 
   def index
