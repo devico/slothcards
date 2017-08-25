@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   resources :sessions
   resources :cards
 
-  post "api/v1/signup" => "users#create"
-  post "api/v1/signin" => "sessions#authenticate"
+  post "register" => "users#create", :as => "register"
+  post "signin" => "sessions#authenticate", :as => "signin"
 
   scope '/registration' do
     get "logout" => "sessions#destroy", :as => "logout"
