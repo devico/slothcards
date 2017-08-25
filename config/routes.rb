@@ -13,9 +13,6 @@ Rails.application.routes.draw do
   resources :sessions
   resources :cards
 
-  post "register" => "users#create", :as => "register"
-  post "signin" => "sessions#authenticate", :as => "signin"
-
   scope '/registration' do
     get "logout" => "sessions#destroy", :as => "logout"
     get "login" => "sessions#new", :as => "login"

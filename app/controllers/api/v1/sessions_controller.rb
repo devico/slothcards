@@ -2,7 +2,7 @@ module Api
   module V1
     class SessionsController < ApplicationController
       
-      def authenticate
+      def create
         auth_token =
           Jwt::UserAuthenticator.call(auth_params[:email], auth_params[:password])
         json_response(auth_token: auth_token)
