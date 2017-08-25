@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :cards
+      resources :users
+      resources :sessions
     end
   end 
 
@@ -10,6 +12,9 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :cards
+
+  post "api/v1/signup" => "users#create"
+  post "api/v1/signin" => "sessions#authenticate"
 
   scope '/registration' do
     get "logout" => "sessions#destroy", :as => "logout"
